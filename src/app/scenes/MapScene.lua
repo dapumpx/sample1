@@ -1,3 +1,5 @@
+local MapIsland = require("app.elements.maps.MapIsland")
+
 local MapScene = class("MapScene", function()
     return display.newScene("MapScene")
 end)
@@ -24,6 +26,8 @@ function MapScene:ctor()
     self.btnCollect:addNodeEventListener(
     	cc.NODE_TOUCH_EVENT, 
     	handler(self, self.onTouchBtnClickHandler))
+
+    self.test = MapIsland.new():addTo(self)
 end
 
 function MapScene:onTouchBtnClickHandler(event)
